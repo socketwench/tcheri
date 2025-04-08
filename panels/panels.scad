@@ -46,26 +46,3 @@ module panels_2u(patternLower=[true,true,true], patternUpper=[true,true,true]) {
                 panels_2uHoles(patternLower, patternUpper);
         }
 }
-
-module panels_2uFanEar() {
-    difference() {
-        linear_extrude(5)
-            difference() {
-                roundedRect(257-221.6, 88.5, 5);
-                
-                translate([15.875/2,0,0])
-                    panels_2uHoles([true, false, false],[false, false, true]);
-                
-                translate([257-221.6-8.85,8.85,0])
-                    circle(d=4.8, $fn=20);
-
-                translate([257-221.6-8.85,88.5-8.85,0])
-                    circle(d=4.8, $fn=20);
-            }
-        
-        translate([0,0,3])
-            cube([(257-221.6)/2,88.5,2]);
-    }
-}
-
-panels_2uFanEar();
